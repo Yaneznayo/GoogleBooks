@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="smz-B5-3Rx">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Library-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="LibraryViewController" title="Library" id="BYZ-38-t0r" customClass="LibraryViewController" customModule="GoogleBooks" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="kLd-8Y-pb2">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="UTJ-r8-Il0" customClass="Book">
+                                <rect key="frame" x="0.0" y="56" width="375" height="562"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="6Lq-f2-zne">
+                                    <size key="itemSize" width="187" height="125"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" reuseIdentifier="BookGridCell" id="k4W-ZA-yZ9" customClass="BookGridCell" customModule="GoogleBooks" customModuleProvider="target">
+                                        <rect key="frame" x="92" y="0.0" width="191" height="124"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" id="ZSE-Fl-Gzg">
+                                            <rect key="frame" x="0.0" y="0.0" width="191" height="124"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="dAx-bM-xiJ">
+                                                    <rect key="frame" x="0.0" y="0.0" width="191" height="124"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="h23-3t-bYz">
+                                                            <rect key="frame" x="0.0" y="0.0" width="91.5" height="124"/>
+                                                        </imageView>
+                                                        <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="iez-FF-4AW">
+                                                            <rect key="frame" x="99.5" y="0.0" width="91.5" height="124"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cqX-Nt-HP2">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="29" height="62"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Cf-03-c5l">
+                                                                    <rect key="frame" x="0.0" y="62" width="50" height="62"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="iez-FF-4AW" firstAttribute="leading" secondItem="h23-3t-bYz" secondAttribute="trailing" constant="8" id="5Gn-hN-BVB"/>
+                                                        <constraint firstItem="iez-FF-4AW" firstAttribute="top" secondItem="dAx-bM-xiJ" secondAttribute="top" id="Ao5-cF-qE3"/>
+                                                        <constraint firstAttribute="bottom" secondItem="iez-FF-4AW" secondAttribute="bottom" id="OVh-ik-KUS"/>
+                                                    </constraints>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="dAx-bM-xiJ" firstAttribute="top" secondItem="ZSE-Fl-Gzg" secondAttribute="top" id="KA7-4F-bSU"/>
+                                                <constraint firstItem="dAx-bM-xiJ" firstAttribute="leading" secondItem="ZSE-Fl-Gzg" secondAttribute="leading" id="NKe-cB-WUx"/>
+                                                <constraint firstAttribute="bottom" secondItem="dAx-bM-xiJ" secondAttribute="bottom" id="Sxe-lC-nsk"/>
+                                                <constraint firstAttribute="trailing" secondItem="dAx-bM-xiJ" secondAttribute="trailing" id="T6R-d7-JIZ"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <connections>
+                                            <outlet property="authorLabel" destination="3Cf-03-c5l" id="y95-sC-tci"/>
+                                            <outlet property="imageView" destination="h23-3t-bYz" id="r4i-QB-b9g"/>
+                                            <outlet property="titleLabel" destination="cqX-Nt-HP2" id="E47-Ok-6AC"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="kLd-8Y-pb2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="0ih-P5-W7B"/>
+                            <constraint firstItem="UTJ-r8-Il0" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="2h9-6J-LL5"/>
+                            <constraint firstItem="kLd-8Y-pb2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="9XF-Oa-NsF"/>
+                            <constraint firstItem="UTJ-r8-Il0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="JN9-of-EYk"/>
+                            <constraint firstItem="UTJ-r8-Il0" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="XWZ-Sq-f9r"/>
+                            <constraint firstItem="UTJ-r8-Il0" firstAttribute="top" secondItem="kLd-8Y-pb2" secondAttribute="bottom" id="mg3-VJ-EyK"/>
+                            <constraint firstItem="kLd-8Y-pb2" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="xbL-ql-XmZ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Library" image="book.fill" catalog="system" id="dbC-Na-1NY"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1029.5999999999999" y="-205.54722638680661"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="z9j-kq-t1c">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="smz-B5-3Rx" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="FkC-9D-q2z">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="DMd-cQ-EgI"/>
+                        <segue destination="FE8-BK-ap4" kind="relationship" relationship="viewControllers" id="VJg-1B-Svl"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6KJ-mR-vA7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="295" y="118"/>
+        </scene>
+        <!--Favorites-->
+        <scene sceneID="RPB-SO-88H">
+            <objects>
+                <viewController title="Favorites" id="FE8-BK-ap4" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="K3P-mW-gLb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gSr-pf-sv8">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nab-wn-OEP">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="iyu-vk-qvZ" customClass="Book">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="UaG-xv-jx8">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="gSr-pf-sv8" firstAttribute="top" secondItem="R2P-CR-u0S" secondAttribute="top" id="8V5-ym-Hci"/>
+                            <constraint firstItem="R2P-CR-u0S" firstAttribute="bottom" secondItem="gSr-pf-sv8" secondAttribute="bottom" id="Ofb-rp-zSI"/>
+                            <constraint firstItem="gSr-pf-sv8" firstAttribute="leading" secondItem="R2P-CR-u0S" secondAttribute="leading" id="Pn0-fh-kgH"/>
+                            <constraint firstItem="R2P-CR-u0S" firstAttribute="trailing" secondItem="gSr-pf-sv8" secondAttribute="trailing" id="iUo-8M-yTt"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="R2P-CR-u0S"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Favorites" image="star.fill" catalog="system" id="hhS-Kh-w4T"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1oE-VE-6AD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1030" y="452"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="book.fill" catalog="system" width="64" height="50"/>
+        <image name="star.fill" catalog="system" width="64" height="58"/>
+    </resources>
+</document>
