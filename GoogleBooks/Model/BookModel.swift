@@ -11,6 +11,13 @@ import Foundation
 struct Book: Decodable {
     let title: String
     let authors: [String]
+    let imageLinks: ImageLinks
+}
+struct ImageLinks: Decodable {
+    let imgUrl: String?
     
+    enum CodingKeys: String, CodingKey {
+        case imgUrl = "thumbnail"
+    }
 }
 //json!["items"]["volumeInfo"]["title"].stringValue

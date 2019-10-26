@@ -22,6 +22,8 @@ extension UIView {
 
 class LibraryViewController: UIViewController {
     
+    
+    
     var titles = [String]()
     let session = URLSession(configuration: .default)
     lazy var gridView: UICollectionView = {
