@@ -8,5 +8,6 @@ target 'GoogleBooks' do
   # Pods for GoogleBooks
     pod 'SwiftyJSON', '~> 4.0'
     pod 'SDWebImage', '~> 5.0'
+    pod 'Alamofire', '~> 5.0.0-rc.2'
 
 end

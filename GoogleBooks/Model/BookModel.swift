@@ -7,3 +7,10 @@
 //
 
 import Foundation
+
+struct Book: Decodable {
+    let title: String
+    let authors: [String]
+    
+}
+//json!["items"]["volumeInfo"]["title"].stringValue
