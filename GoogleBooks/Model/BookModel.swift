@@ -7,17 +7,32 @@
 //
 
 import Foundation
+import UIKit
+
+typealias ImageHandler = (UIImage?) -> Void
 
 struct Book: Decodable {
+    let id: String
     let title: String
     let authors: [String]
-    let imageLinks: ImageLinks
-}
-struct ImageLinks: Decodable {
-    let imgUrl: String?
-    
-    enum CodingKeys: String, CodingKey {
-        case imgUrl = "thumbnail"
+    let image: String
+    var isFavorite: Bool
+
+func getImage(completion: @escaping ImageHandler) {
+        
+        guard let url = URL(string: image) else {
+            completion(nil)
+            return
+        }
+        
+        URLSession.shared.dataTask(with: url ) { (dat, _, _) in
+            if let data = dat {
+                DispatchQueue.main.async {
+                    completion(UIImage(data: data))
+                }
+            }
+        }.resume()
     }
 }
+    
 //json!["items"]["volumeInfo"]["title"].stringValue

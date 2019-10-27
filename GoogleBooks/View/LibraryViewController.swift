@@ -7,86 +7,131 @@
 //
 
 import UIKit
-import SwiftyJSON
 
-extension UIView {
-    func setupToFill(superView: UIView) {
-        translatesAutoresizingMaskIntoConstraints = false
-        superView.addSubview(self)
-        leadingAnchor.constraint(equalTo: superView.leadingAnchor).isActive = true
-        trailingAnchor.constraint(equalTo: superView.trailingAnchor).isActive = true
-        topAnchor.constraint(equalTo: superView.layoutMarginsGuide.topAnchor).isActive = true
-        bottomAnchor.constraint(equalTo: superView.bottomAnchor).isActive = true
-    }
-}
-
-class LibraryViewController: UIViewController {
+class SearchVC: UIViewController {
     
     
+    // MARK: - IBOutlets
+    @IBOutlet weak var collectionView: UICollectionView!
     
-    var titles = [String]()
-    let session = URLSession(configuration: .default)
-    lazy var gridView: UICollectionView = {
-        let grid = UICollectionView()
-        grid.dataSource = self as! UICollectionViewDataSource
-        grid.register(UITableViewCell.self, forCellWithReuseIdentifier: "cell")
-           return grid
-       }()
-    func getTitles(){
-        let url = "https://www.googleapis.com/books/v1/volumes?q="
-        session.dataTask(with: URL(string: url)!) { (data, _, _) in
-            guard let data = data else { return }
-            let json = try? JSON(data: data)
-            //alternate method
-            /*for i in 0..<json!.count{
-                self.titles.append(json![i]["title"].stringValue)
-            }*/
-            for (_ ,subJson):(String, JSON) in json! {
-                self.titles.append(subJson["title"].stringValue)
-            }
+    
+    // MARK: - Variables
+    let searchController = UISearchController(searchResultsController: nil)
+    
+    var height: CGFloat = 260
+    var column: CGFloat = 2
+    var spacing: CGFloat = 10
+    var currentBook: Book?
+    
+    var books = [Book]() {
+        didSet {
             DispatchQueue.main.async {
-                self.gridView.reloadData()
+                self.collectionView.reloadData()
             }
-        }.resume()
-
-
+        }
+    }
+    
+    var favBooks: [FavBook]?
+    
+    
+    // MARK: - Life cycle methods
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // Search bar
+        searchController.searchBar.placeholder = "Type book or author here..."
+        searchController.searchBar.delegate = self
+        navigationItem.hidesSearchBarWhenScrolling = false
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        favBooks = BookManager.shared.load()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
     }
     
     
-    override func viewDidLoad() {
-            super.viewDidLoad()
+    // MARK: - Functions
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let detailVC = segue.destination as? DetailVC {
+            
+            // Compare with CoreData to check is already saved in Favorites
+            for favBook in favBooks! where favBook.id == currentBook!.id {
+                currentBook!.isFavorite = true
+                print("Book is already saved!")
+            }
+            
+            detailVC.book = currentBook!
+        }
+    }
+
+}
+
+
+// MARK: - Protocols
+extension SearchVC: UISearchResultsUpdating, UISearchBarDelegate {
+    
+    // Search bar
+    func updateSearchResults(for searchController: UISearchController) {
+        
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        // Check searchbar text
+        guard let searchText = searchController.searchBar.text else { return }
+        // Fetch book according to searchbar text
+        BookManager.shared.getBooks(for: searchText) { [unowned self] booksArr in
+            self.books = booksArr
+        }
+        
+        navigationItem.searchController?.isActive = false
+        
     }
 }
 
-/*extension LibraryViewController: UICollectionViewDataSource {
+    // View Data Source
+extension SearchVC: UICollectionViewDataSource {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        <#code#>
+        return books.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        <#code#>
-    }
-    
-    func gridView(_ collectionView: UICollectionView,
-                        numberOfItemsInSection section: Int) -> Int {
-        return vm.count
-    }
-    
-    func gridView(_ collectionView: UICollectionView,
-                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell",
-                                                      for: indexPath) as! PokeImageCollectionViewCell
-        vm.image(at: indexPath.row) { (dat) in
-            guard let dat = dat else { return }
-            let image = UIImage(data: dat)
-            DispatchQueue.main.async {
-                cell.imageView.image = image
-            }
-        }
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BookCell.identifier, for: indexPath) as! BookCell
+        
+        // Assign Book to Cell
+        let book = books[indexPath.row]
+        cell.book = book
         
         return cell
     }
+
     
 }
 
-*/
+
+    // View Delegate Flow Layout
+extension SearchVC: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = (view.frame.width - (spacing * 4)) / column
+        return CGSize(width: width, height: height)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        currentBook = books[indexPath.row]
+        performSegue(withIdentifier: "segueFromSearch", sender: (Any).self)
+    }
+    
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: spacing, left: spacing, bottom: spacing, right: spacing)
+    }
+}

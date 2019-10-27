@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Cja-WK-9vS"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="W9V-1A-2o6"/>
                                 </connections>
                             </searchBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="UTJ-r8-Il0" customClass="Book">
@@ -101,6 +101,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Library" image="book.fill" catalog="system" id="dbC-Na-1NY"/>
+                    <connections>
+                        <outlet property="searchBar" destination="kLd-8Y-pb2" id="QWQ-eU-JqB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
