@@ -12,11 +12,11 @@ import UIKit
 typealias ImageHandler = (UIImage?) -> Void
 
 struct Book: Decodable {
-    let id: String
-    let title: String
     let authors: [String]
+    let id: String
     let image: String
     var isFavorite: Bool
+    let title: String
 
 func getImage(completion: @escaping ImageHandler) {
         

@@ -93,7 +93,7 @@ final class BookManager {
         var books = [Book]()
     
         for favBook in favBooks {
-            let book = Book(id: favBook.id!, title: favBook.title!, image: favBook.image!, authors: [favBook.authors!], publishedDate: favBook.publishedDate!, description: favBook.desc!, rating: favBook.rating, isFavorite: favBook.isFavorite)
+            let book = Book(authors: [favBook.authors!], id: favBook.id!, image: favBook.image!, isFavorite: favBook.isFavorite, title: favBook.title!)
         
             books.append(book)
         }
@@ -115,7 +115,7 @@ final class BookManager {
         let authors = info["authors"] as? [String] ?? ["N/A"]
         
         // Creating Book instance
-        let book = Book(id: id, title: title, image: image, authors: authors, isFavorite: false)
+        let book = Book(authors: authors, id: id, image: image, isFavorite: false, title: title)
     
         return book
     }
@@ -152,9 +152,6 @@ final class BookManager {
         favBook.setValue(book.title, forKey: "title")
         favBook.setValue(book.authors[0], forKey: "authors")
         favBook.setValue(book.image, forKey: "image")
-        favBook.setValue(book.description, forKey: "desc")
-        favBook.setValue(book.publishedDate, forKey: "publishedDate")
-        favBook.setValue(book.rating, forKey: "rating")
         favBook.setValue(true, forKey: "isFavorite")
         
         saveContext()

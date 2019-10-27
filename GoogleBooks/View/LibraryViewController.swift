@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchVC: UIViewController {
+class LibraryViewController: UIViewController {
     
     
     // MARK: - IBOutlets
@@ -75,7 +75,7 @@ class SearchVC: UIViewController {
 
 
 // MARK: - Protocols
-extension SearchVC: UISearchResultsUpdating, UISearchBarDelegate {
+extension LibraryViewController: UISearchResultsUpdating, UISearchBarDelegate {
     
     // Search bar
     func updateSearchResults(for searchController: UISearchController) {
@@ -96,14 +96,14 @@ extension SearchVC: UISearchResultsUpdating, UISearchBarDelegate {
 }
 
     // View Data Source
-extension SearchVC: UICollectionViewDataSource {
+extension LibraryViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return books.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BookCell.identifier, for: indexPath) as! BookCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BookGridCell.identifier, for: indexPath) as! BookGridCell
         
         // Assign Book to Cell
         let book = books[indexPath.row]
@@ -117,7 +117,7 @@ extension SearchVC: UICollectionViewDataSource {
 
 
     // View Delegate Flow Layout
-extension SearchVC: UICollectionViewDelegateFlowLayout {
+extension LibraryViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = (view.frame.width - (spacing * 4)) / column

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FavoriteVC: SearchVC {
+class FavoriteVC: LibraryViewController {
     
     // MARK: - Life cycle methods
     override func viewDidLoad() {
