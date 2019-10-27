@@ -90,6 +90,7 @@
 				9D2CCDD72364993D00806A19 /* SceneDelegate.swift */,
 				9D2CCDE92364A09200806A19 /* Model */,
 				9D2CCDEA2364A09A00806A19 /* View */,
+				9D2CCDFE2366368000806A19 /* Controllers */,
 				9D2CCDEB2364A0A800806A19 /* ViewModel */,
 				9D2CCDEC2364A0C900806A19 /* Storyboard */,
 				9D2CCDF12365F9FA00806A19 /* Service */,
@@ -111,10 +112,7 @@
 		9D2CCDEA2364A09A00806A19 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				9D2CCDD92364993D00806A19 /* LibraryViewController.swift */,
 				9D2CCDEF2364BDE000806A19 /* BookGridCell.swift */,
-				9D2CCDF62366028900806A19 /* FavViewController.swift */,
-				9D2CCDF82366039C00806A19 /* DetailViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -143,6 +141,16 @@
 			);
 			name = Service;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		9D2CCDFE2366368000806A19 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9D2CCDD92364993D00806A19 /* LibraryViewController.swift */,
+				9D2CCDF62366028900806A19 /* FavViewController.swift */,
+				9D2CCDF82366039C00806A19 /* DetailViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		CF5373AD1B86D1FBF5E983B8 /* Frameworks */ = {

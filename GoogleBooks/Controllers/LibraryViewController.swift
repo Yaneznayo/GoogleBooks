@@ -52,7 +52,7 @@ class LibraryViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         DispatchQueue.main.async {
-            self.collectionView.reloadData()
+            self.collectionView?.reloadData()
         }
     }
     

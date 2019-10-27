@@ -67,9 +67,9 @@ final class BookManager {
             // JSON Serialization
             do {
                 let json = try JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
-                let bookItems = json["items"] as! [[String: Any]]
+                let bookItems = json["items"] as? [[String: Any]]
                 
-                for item in bookItems {
+                for item in bookItems! {
                     let book = self.parseJSON(from: item)
                     books.append(book)
                 }
