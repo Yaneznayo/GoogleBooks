@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="UTJ-r8-Il0" customClass="CollectionView">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="UTJ-r8-Il0">
                                 <rect key="frame" x="0.0" y="100" width="375" height="518"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="6Lq-f2-zne">
@@ -28,29 +28,29 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" reuseIdentifier="BookGridCell" id="k4W-ZA-yZ9" customClass="BookGridCell" customModule="GoogleBooks" customModuleProvider="target">
-                                        <rect key="frame" x="94" y="0.0" width="187" height="125"/>
+                                        <rect key="frame" x="94" y="0.0" width="187" height="124"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" id="ZSE-Fl-Gzg">
-                                            <rect key="frame" x="0.0" y="0.0" width="187" height="125"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="187" height="124"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="dAx-bM-xiJ">
-                                                    <rect key="frame" x="0.0" y="0.0" width="187" height="125"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="187" height="124"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="h23-3t-bYz">
-                                                            <rect key="frame" x="0.0" y="0.5" width="89.5" height="124"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="89.5" height="124"/>
                                                         </imageView>
                                                         <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="iez-FF-4AW">
-                                                            <rect key="frame" x="97.5" y="0.0" width="89.5" height="125"/>
+                                                            <rect key="frame" x="97.5" y="0.0" width="89.5" height="124"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cqX-Nt-HP2">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="29" height="62.5"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="29" height="62"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="author" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Cf-03-c5l">
-                                                                    <rect key="frame" x="0.0" y="62.5" width="50" height="62.5"/>
+                                                                    <rect key="frame" x="0.0" y="62" width="50" height="62"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -86,12 +86,14 @@
                             <constraint firstItem="UTJ-r8-Il0" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="2h9-6J-LL5"/>
                             <constraint firstItem="UTJ-r8-Il0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="JN9-of-EYk"/>
                             <constraint firstItem="UTJ-r8-Il0" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="XWZ-Sq-f9r"/>
+                            <constraint firstItem="UTJ-r8-Il0" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="56" id="xww-7o-Xs5"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Library" id="nk5-Ml-UoM"/>
                     <connections>
-                        <segue destination="6Df-LT-LQj" kind="show" id="hnI-aT-q0H"/>
+                        <outlet property="collectionView" destination="UTJ-r8-Il0" id="6Bm-tm-B56"/>
+                        <segue destination="6Df-LT-LQj" kind="show" identifier="segueFromSearch" id="hnI-aT-q0H"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -157,7 +159,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Favorites" id="0AB-G2-SDB"/>
                     <connections>
-                        <segue destination="6Df-LT-LQj" kind="show" id="gZ6-xY-Iu4"/>
+                        <segue destination="6Df-LT-LQj" kind="show" identifier="segueFromFavorites" id="gZ6-xY-Iu4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1oE-VE-6AD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -285,6 +287,6 @@
         <image name="star.fill" catalog="system" width="64" height="58"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="hnI-aT-q0H"/>
+        <segue reference="gZ6-xY-Iu4"/>
     </inferredMetricsTieBreakers>
 </document>

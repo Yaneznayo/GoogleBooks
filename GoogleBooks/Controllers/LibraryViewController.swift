@@ -12,7 +12,14 @@ class LibraryViewController: UIViewController {
     
     
     // MARK: - IBOutlets
-    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var collectionView: UICollectionView!{
+        didSet{
+            collectionView.dataSource = self
+            collectionView.delegate = self
+            //let nib = UINib(nibName: "BookGridCell", bundle: nil)
+           //  collectionView.register(nib, forCellWithReuseIdentifier: "BookGridCell")
+        }
+    }
     
     
     // MARK: - Variables
@@ -51,9 +58,7 @@ class LibraryViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        DispatchQueue.main.async {
-            self.collectionView?.reloadData()
-        }
+        self.collectionView.reloadData()
     }
     
     
@@ -66,11 +71,9 @@ class LibraryViewController: UIViewController {
                 currentBook!.isFavorite = true
                 print("Book is already saved!")
             }
-            
             detailVC.book = currentBook!
         }
     }
-
 }
 
 

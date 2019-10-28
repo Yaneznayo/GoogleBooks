@@ -106,7 +106,7 @@ final class BookManager {
     
         // Nested JSON Elements
         let info: [String: Any] = item["volumeInfo"] as! [String: Any]
-        let images: [String: Any] = info["imageLinks"] as! [String: Any]
+        let images: [String: Any] = (info["imageLinks"] as? [String: Any])!
     
         // Exctracting variables
         let id = item["id"] as? String ?? ""
@@ -135,7 +135,6 @@ final class BookManager {
             context.delete(favBook)
             return
         }
-    
     }
 
 

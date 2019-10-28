@@ -3,4 +3,134 @@
    uuid = "56C05CAB-8C4A-412F-92B6-7D56ACEB6FBE"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3A204720-B7AD-4825-8260-6C6764E5799D"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BookManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "getBooks(for:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2F9D424B-9744-43D4-87C9-7098F692B8DB"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BookManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "getBooks(for:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "2F9D424B-9744-43D4-87C9-7098F692B8DB - 6f0995c17b7606f1"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GoogleBooks.BookManager.getBooks(for: Swift.String, completion: (Swift.Array&lt;GoogleBooks.Book&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "GoogleBooks"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/consultant/Desktop/Homework/Weekend%204/GoogleBooks/BookManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "53"
+                  endingLineNumber = "53"
+                  offsetFromSymbolStart = "474">
+               </Location>
+               <Location
+                  uuid = "2F9D424B-9744-43D4-87C9-7098F692B8DB - b5b947a92c6269db"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in GoogleBooks.BookManager.getBooks(for: Swift.String, completion: (Swift.Array&lt;GoogleBooks.Book&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "GoogleBooks"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/consultant/Desktop/Homework/Weekend%204/GoogleBooks/BookManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "55"
+                  endingLineNumber = "55"
+                  offsetFromSymbolStart = "392">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8CF51B28-60D1-42A9-A38E-27DCE08F1DFE"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BookManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "getBooks(for:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E5AFD305-0D8E-4264-A3F3-EE597338E71F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BookManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "getBooks(for:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "E5AFD305-0D8E-4264-A3F3-EE597338E71F - b5b947a92c6269db"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in GoogleBooks.BookManager.getBooks(for: Swift.String, completion: (Swift.Array&lt;GoogleBooks.Book&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "GoogleBooks"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/consultant/Desktop/Homework/Weekend%204/GoogleBooks/BookManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "78"
+                  endingLineNumber = "78"
+                  offsetFromSymbolStart = "2896">
+               </Location>
+               <Location
+                  uuid = "E5AFD305-0D8E-4264-A3F3-EE597338E71F - 8502c78dd3668388"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "function signature specialization &lt;Arg[1] = Value Promoted from Box&gt; of closure #1 () -&gt; () in closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in GoogleBooks.BookManager.getBooks(for: Swift.String, completion: (Swift.Array&lt;GoogleBooks.Book&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "GoogleBooks"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/consultant/Desktop/Homework/Weekend%204/GoogleBooks/BookManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "79"
+                  endingLineNumber = "79"
+                  offsetFromSymbolStart = "41">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

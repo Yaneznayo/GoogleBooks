@@ -14,7 +14,7 @@ class BookGridCell: UICollectionViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var authorLabel: UILabel!
     
-    static let identifier = "BookCell"
+    static let identifier = "BookGridCell"
     
     var book: Book! {
         didSet {
